@@ -12,7 +12,6 @@ module.exports= async(req,res,next)=>{
         contact: req.body.contact,
         address:req.body.address,
         subject:req.body.subject
-
         };
     
         const content = await createTeacher(obj);

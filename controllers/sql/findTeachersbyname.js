@@ -10,7 +10,7 @@ module.exports= async(req)=>{
         const querystring= sqlstring.format(`select * from teachers where firstName = ?`,[req.params.firstName]);
         const [sqlquery] = await helper.mysqlHelper.query(querystring);
 
-        if(sqlquery){
+        if(sqlquery[0]){
             return sqlquery;
         }
         else return false;

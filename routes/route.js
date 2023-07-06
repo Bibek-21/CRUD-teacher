@@ -32,4 +32,4 @@
     router.use('/teacher', teacher);
     
     module.exports = router;
-})()
+})();

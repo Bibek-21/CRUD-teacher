@@ -10,6 +10,7 @@
     const select_teacher= require('../controllers/methods/selectTeachers');
     const find_teacherbyuuid= require('../controllers/methods/findTeachersbyuuid');
     const find_teacherbyname= require('../controllers/methods/findTeachersbyname');
+    const hard_delete= require('../controllers/methods/hardDeletebyuuid');
 
     router.post('/createteacher',create_teacher);
     router.put('/updateteacher/:uuid',update_teacher);
@@ -17,6 +18,8 @@
     router.get('/selectteacher',select_teacher);
     router.get('/findteacherbyid/:uuid',find_teacherbyuuid);
     router.get('/findteacherbyname/:firstName',find_teacherbyname);
+    router.delete('/harddelete/:uuid',hard_delete);
+
 
 
 
