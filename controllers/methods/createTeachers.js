@@ -3,6 +3,7 @@
 const createTeacher = require('../sql/createTeacher');
 module.exports= async(req,res,next)=>{
     try {
+
         const obj={
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -13,15 +14,16 @@ module.exports= async(req,res,next)=>{
         subject:req.body.subject
 
         };
+    
         const content = await createTeacher(obj);
-        if(content){
+        if(content==true){
             res.status(200).send({
                 message:'successfully created',
                 success: true
             })
         }
         else{
-            res.status(200).send({
+            res.status(400).send({
                 message:'Could not create table',
                 success: false
             })
@@ -33,4 +35,4 @@ module.exports= async(req,res,next)=>{
     }
 }
 
-})
+})();

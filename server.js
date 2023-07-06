@@ -8,6 +8,7 @@ const mainroute = require("./routes/route");
 const dotenv = require("dotenv");
 dotenv.config();
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use("/",mainroute);
 const port = process.env.PORT;
 app.listen(port,()=>{

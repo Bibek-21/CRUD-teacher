@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       uuid: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       firstName: {
@@ -41,12 +42,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        
+        type: Sequelize.BIGINT(50)
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        
+        type: Sequelize.BIGINT(50)
       }
 
 
