@@ -1,6 +1,7 @@
 "use strict";
 const createTeacher = require('../sql/createTeacher');
-const verifyinfo = require("../../helper/authEmail");
+// const verifyinfo = require("../../helper/newvalidate");
+const verifyinfo= require("../../helper/validateData");
 
 (() => {
     module.exports = async (req, res, next) => {
@@ -18,7 +19,7 @@ const verifyinfo = require("../../helper/authEmail");
 
             const info = verifyinfo(obj);
 
-            if (info) {
+            if (info==true) {
                 const content = await createTeacher(obj);
                 if (content == true) {
                     res.status(200).send({
@@ -36,7 +37,7 @@ const verifyinfo = require("../../helper/authEmail");
 
             else {
 
-                res.send("Could not verify email")
+                res.send("Could not verify data")
             }
         } catch (error) {
             console.log(error);

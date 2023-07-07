@@ -2,7 +2,6 @@
 const mysql = require('mysql2/promise');
 ((mysqlHelper)=>{
     let dbClient = null;
-    let tranConn= null;
     mysqlHelper.init = async() =>{
         try{
             if(!dbClient){
