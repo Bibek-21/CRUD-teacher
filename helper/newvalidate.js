@@ -1,7 +1,7 @@
 "use strict";
 
-(()=>{
-    module.exports= async(data)=>{
+((validationHelper)=>{
+    validationHelper.userinfo= async(data)=>{
         
         try {
             if(
@@ -11,7 +11,8 @@
                 data.email==" "||
                 data.contact==" "||
                 data.address==" "||
-                data.subject==" "
+                data.subject==" "||
+                data.Password==" "
 
             ){ 
                 return false;
@@ -41,4 +42,4 @@
 
 
     }
-})();
+})(module.exports);

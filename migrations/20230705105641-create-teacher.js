@@ -41,6 +41,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      Password:{
+        allowNull:false,
+        type:Sequelize.TEXT
+      },
+      is_delete:{
+        defaultValue: 0,
+        type: Sequelize.TINYINT
+      },
       createdAt: {
         
         type: Sequelize.BIGINT(50)

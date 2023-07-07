@@ -1,11 +1,14 @@
 "use strict";
 const createTeacher = require('../sql/createTeacher');
-// const verifyinfo = require("../../helper/newvalidate");
-const verifyinfo= require("../../helper/validateData");
+const helper = require("../../helper/index");
+const { hashpassword } = require('../../helper/hashPassword');
+//const hashpass =require("../../helper/hashPassword")
+//const verifyinfo= require("../../helper/validateData");
 
 (() => {
     module.exports = async (req, res, next) => {
         try {
+             const passwordhash = await hashpassword(req.body.Password)
 
             const obj = {
                 firstName: req.body.firstName,
@@ -14,11 +17,11 @@ const verifyinfo= require("../../helper/validateData");
                 email: req.body.email,
                 contact: req.body.contact,
                 address: req.body.address,
-                subject: req.body.subject
+                subject: req.body.subject,
+                Password: passwordhash,
             };
-
-            const info = verifyinfo(obj);
-
+            
+            const info = await helper.validationHelper.userinfo(obj);
             if (info==true) {
                 const content = await createTeacher(obj);
                 if (content == true) {
